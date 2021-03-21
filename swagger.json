@@ -1,0 +1,46 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Xendit Marvel Characters API",
+    "description": "Xendit Marvel Characters API",
+    "license": {
+                "name": "MIT",
+                "url": "https://opensource.org/licenses/MIT"
+              }
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+        "/characters": {
+                        "get": {
+                              "description": "Lists all of the cached character ids from Marvel",
+                              "parameters": [],
+                              "produces": ["application/json"],
+                              "responses": {
+                                            "200": {"description": "A JSON Array of IDs for the cached Marvel Characters"}
+                                          }
+                              }
+                      },
+        "/characters/{characterId}": {
+                      "parameters": [
+                          {
+                            "name": "characterId",
+                            "in": "path",
+                            "required": true,
+                            "description": "ID of character to get name and description from Marvel",
+                            "type": "integer"
+                          }
+                      ],
+                      "get": {
+                              "summary": "Get id, name and description of a Marvel character",
+                              "responses": {
+                                            "200": {  "description": "OK"}
+                              }
+                      }
+                    }
+        }
+}
